@@ -55,10 +55,4 @@ public class UserController {
         
         return ResponseEntity.ok().body("User registered!");
     }
-
-    @PostMapping("/greetings")
-    public ResponseEntity<User> getGreetings(User user) {
-        
-        return ResponseEntity.ok().body(user);
-    }
 }
