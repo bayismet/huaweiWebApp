@@ -43,17 +43,6 @@ public class UserController {
         return ResponseEntity.status(418).body(null);
     }
 
-    @PostMapping("/loginTest")
-    public ResponseEntity<String> loginTest(String username, String password) {
-        for (User user : userService.getAllUsers()) {
-            if (user.username.toString().equals(username) && user.password.toString().equals(password)) {
-                return ResponseEntity.ok().body("Logged in successfully!");
-            }
-        }
-        
-        return ResponseEntity.status(418).body(null);
-    }
-
     @PostMapping("/register")
     public ResponseEntity<String> register(String username, String password) {
         for (User user : userService.userList) {
@@ -65,12 +54,6 @@ public class UserController {
         userService.userList.add(new User(username, password));
         
         return ResponseEntity.ok().body("User registered!");
-    }
-
-    @PostMapping("/")
-    public ResponseEntity<User> getNewUser(String username, String password) {
-        
-        return ResponseEntity.ok().body(new User(username, password));
     }
 
     @PostMapping("/greetings")
